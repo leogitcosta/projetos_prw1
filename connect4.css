@@ -1,0 +1,48 @@
+  :root { --cols: 7; --rows: 6; --size: 70px; }
+
+  body { font-family: system-ui, Arial, sans-serif; display: grid; gap: 16px; place-content: center; min-height: 100vh; margin: 0; padding: 20px; background:#f7f7f7; }
+  h1 { margin: 0; font-size: 1.2rem; text-align: center; }
+  #status { text-align: center; font-weight: 600; min-height: 1.5em; }
+
+  /* Seleção de cores */
+  .pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .picker { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 12px; }
+  .picker h2 { margin: 0 0 8px; font-size: 1rem; }
+  .colors { display: flex; gap: 8px; flex-wrap: wrap; }
+  .color-btn {
+    width: 40px; height: 40px; border-radius: 999px; border: 2px solid #333; cursor: pointer;
+    display: grid; place-items: center; font-size: 0; outline: none;
+  }
+  .color-btn[disabled] { opacity: 0.35; cursor: not-allowed; }
+  .color-btn.selected { box-shadow: 0 0 0 3px #333 inset; }
+
+  #controls { display: flex; gap: 8px; justify-content: center; }
+  button.ctrl { padding: 8px 12px; border-radius: 10px; border: 1px solid #333; background: #fff; cursor: pointer; }
+
+  /* Tabuleiro */
+  #boardWrap { display: grid; gap: 8px; justify-items: center; }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--size));
+    grid-template-rows: repeat(var(--rows), var(--size));
+    gap: 8px; padding: 12px;
+    background: #1a4aa3; border-radius: 18px; border: 4px solid #0e2f6e;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+  .cell {
+    width: var(--size); height: var(--size);
+    background: #0e2f6e; border-radius: 14px;
+    display: grid; place-items: center; cursor: pointer; position: relative;
+  }
+  .disc {
+    width: calc(var(--size) - 16px); height: calc(var(--size) - 16px);
+    background: #eaeaea; border-radius: 999px; transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: inset 0 7px 12px rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.08);
+  }
+  .cell:hover .disc { transform: scale(1.04); }
+  .win { outline: 4px solid #46d46a; outline-offset: -6px; }
+
+  /* Responsivo */
+  @media (max-width: 640px) {
+    :root { --size: 56px; }
+  }

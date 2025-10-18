@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projeto Integrador — Promises & Async/Await</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <h1>Consulta de CEP + Salvamento Assíncrono</h1>
+    <p>Projeto integrador para praticar <strong>Promises</strong>, <strong>async/await</strong>, <strong>encadeamento</strong>, <strong>tratamento de erros</strong>, <strong>Promise.all</strong>, <strong>Promise.race</strong> (timeout) e <strong>finally</strong>.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1) Buscar Endereço por CEP (ViaCEP)</h2>
+      <form id="form-cep">
+        <label>CEP (somente números):
+          <input id="cep" name="cep" placeholder="Ex.: 13565820" maxlength="8" required />
+        </label>
+        <button id="btnBuscar" type="submit">Buscar</button>
+      </form>
+
+      <div class="grid">
+        <label>Logradouro
+          <input id="logradouro" readonly />
+        </label>
+        <label>Bairro
+          <input id="bairro" readonly />
+        </label>
+        <label>Cidade
+          <input id="localidade" readonly />
+        </label>
+        <label>UF
+          <input id="uf" readonly />
+        </label>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>2) Salvar Cadastro (Simulado)</h2>
+      <p>Simula um salvamento em servidor com chance de falha e latência variável. Usa <code>finally</code> para remover o loading.</p>
+      <button id="btnSalvar">Salvar Cadastro</button>
+      <div id="statusSalvar" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>3) Buscar Múltiplos CEPs (Promise.all)</h2>
+      <p>Digite CEPs separados por vírgula e veja a busca em paralelo.</p>
+      <label>CEPs:
+        <input id="cepsLista" placeholder="13565820,01001000" />
+      </label>
+      <button id="btnBuscarMultiplos">Buscar todos</button>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>CEP</th><th>Logradouro</th><th>Bairro</th><th>Cidade</th><th>UF</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyResultados"></tbody>
+        </table>
+      </div>
+      <div id="statusMultiplos" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>4) Timeout de Requisição (Promise.race)</h2>
+      <p>Busca CEP com limite de tempo. Se demorar demais, cancela e mostra mensagem de timeout.</p>
+      <label>CEP com Timeout:
+        <input id="cepTimeout" placeholder="Ex.: 13565820"/>
+      </label>
+      <button id="btnBuscarTimeout">Buscar com timeout (2s)</button>
+      <div id="statusTimeout" class="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 — Projeto didático</p>
+  </footer>
+
+  <!-- Alunos implementam em app.js. Professor: ver app-solution.js -->
+  <script src="app_2.js"></script>
+  <!-- Para testar a solução do professor, comente a linha acima e descomente a de baixo -->
+  <!-- <script src="app-solution.js"></script> -->
+</body>
+</html>

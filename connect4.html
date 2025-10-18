@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Connect Four — dois jogadores com escolha de cores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="connect4.css"></head>
+</head>
+<body>
+  <h1>Connect Four — escolha de cores</h1>
+  <div id="status">Cada jogador escolha uma cor diferente e clique em "Começar".</div>
+
+  <section class="pickers" id="pickers">
+    <div class="picker" id="p1Picker">
+      <h2>Jogador 1</h2>
+      <div class="colors" data-player="1"></div>
+    </div>
+    <div class="picker" id="p2Picker">
+      <h2>Jogador 2</h2>
+      <div class="colors" data-player="2"></div>
+    </div>
+  </section>
+
+  <div id="controls">
+    <button id="start" class="ctrl">Começar</button>
+    <button id="reset" class="ctrl">Reiniciar</button>
+    <button id="changeColors" class="ctrl">Trocar Cores</button>
+  </div>
+
+  <div id="boardWrap">
+    <div id="board" aria-label="Tabuleiro Connect Four"></div>
+  </div>
+<script src='connect4.js'></script>
+</body>
+</html>
